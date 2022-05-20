@@ -9,11 +9,18 @@ class Solution {
         return temp;
     }
     
+     bool valid(char c){
+        if( (c>='a'&&c<='z') || (c>='A'&&c<='Z') || (c>='0'&&c<='9'))
+            return 1; 
+        else 
+            return 0;
+    }
+    
 public:
     bool isPalindrome(string s) {
      string t="";
         for(int j=0;j<s.length();j++){
-        if(isalnum(s[j]))
+        if(valid(s[j]))
             t.push_back(s[j]);
         }
         
