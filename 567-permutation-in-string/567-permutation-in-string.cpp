@@ -40,7 +40,7 @@ public:
             char oldItem=s2[i-window];
             index=oldItem-'a';
             count2[index]--;
-             i++;
+             i++;                              //Important to increment i here only
             if(compare(count1,count2))
             return true;
             
