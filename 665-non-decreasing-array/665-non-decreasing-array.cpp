@@ -7,7 +7,8 @@ public:
             if(nums[i]<nums[i-1]){
                 ++count;
             
-
+            if(count>1)
+                return false;
             
             if(i-2<0 || nums[i-2]<=nums[i])
                 nums[i-1]=nums[i];
@@ -17,8 +18,7 @@ public:
                 
             }
         }
-        if(count>1)
-            return false;
-        else return true;
+        return true;
+           
     }
 };
