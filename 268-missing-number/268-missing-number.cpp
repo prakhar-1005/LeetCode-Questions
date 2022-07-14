@@ -1,19 +1,13 @@
 class Solution {
 public:
-    int missingNumber(vector<int>& nums) {
-        int n=nums.size();
-        int ans=0; /* This is initialised to 0 for the case when the first element after sorting is not 
-        equal to 0. We observe that the if condition in loop fails and also the if condition out of the loop*/
-        sort(nums.begin(),nums.end());
-        for(int i=0;i<n-1;i++){
-            if(nums[i+1]!=nums[i]+1){
-                ans= nums[i]+1;
-                break;
-            }    
+    int missingNumber(vector<int>& nums) {   
+        int sum = 0; // sum of all numbers initially 0
+        int total = nums.size()*(nums.size() + 1)/2; /* total is the sum of 
+                                                       all numbers in the array*/
+        for (auto number : nums) {     // iterate through the array
+            sum += number;        // add the number to the sum
         }
-        if(nums[n-1]!=n)
-          ans=n;
-        
-        return ans;
+        return total - sum; /* return the difference between the sum and the total 
+                              that is the missing number*/
     }
 };
