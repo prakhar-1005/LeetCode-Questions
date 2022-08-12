@@ -1,20 +1,11 @@
 class Solution {
 public:
-    int minOperations(vector<int>& nums) {
-        int count=0;
-        for(int i=1;i<nums.size();i++){
-            if(nums[i]>nums[i-1])
-                continue;
-            
-            else if(nums[i]<nums[i-1]){
-                count+=(nums[i-1]-nums[i])+1;
-                nums[i]=nums[i]+(nums[i-1]-nums[i])+1;
-            }
-            else{
-                count++;
-                nums[i]++;
-            }
-        }
-        return count;
+   int minOperations(vector<int>& nums) {
+	int cnt = 0;
+	for(int i = 1; i < size(nums); i++){
+		cnt += max(0, nums[i - 1] + 1 - nums[i]);
+        nums[i] = max(nums[i], nums[i - 1] + 1);
     }
+	return cnt;
+  }
 };
