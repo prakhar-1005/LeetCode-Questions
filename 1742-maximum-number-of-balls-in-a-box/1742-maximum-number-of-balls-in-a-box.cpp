@@ -1,10 +1,9 @@
 class Solution {
 public:
     int countBalls(int lowLimit, int highLimit) {
-        vector<int>box(highLimit,0);
-        if(highLimit<10){
-            return 1;
-        }
+        
+        vector<int>box(46,0);
+
         for(int i=lowLimit;i<=highLimit;i++){
             int num=i;
             int sum=0;
