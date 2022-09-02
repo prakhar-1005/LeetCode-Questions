@@ -8,12 +8,13 @@ public:
             if(nums[i]!=1){
                 maxcount=max(maxcount,count);
                 count=0;
-            
             }
             else{
              count++;
+            }
             maxcount=max(maxcount,count);
-           }
+            
+           
             
         }
         
