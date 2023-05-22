@@ -32,20 +32,24 @@ struct Node
 class Solution
 {
     public:
+    
+    struct Node* solve(struct Node* prev,struct Node* cur,struct Node* forward){
+        if(cur==NULL)
+            return prev;
+        
+        forward=cur->next;
+        cur->next=prev;
+        return solve(cur,forward,forward);
+        
+    }
+    
     //Function to reverse a linked list.
     struct Node* reverseList(struct Node *head)
     {
-        if (head==NULL || head->next==NULL)
+        if(head==NULL || head->next==NULL)
             return head;
-        struct Node *cur=head, *prev = NULL, *forward=NULL;
-        
-        while(cur!=NULL){
-            forward= cur->next;
-            cur->next=prev;
-            prev=cur;
-            cur=forward;
-        }
-        return prev;
+        struct Node *cur=head,*prev=nullptr,*forward=NULL;
+        return solve(prev,cur,forward);
     }
     
 };
